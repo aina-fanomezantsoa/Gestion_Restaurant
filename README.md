@@ -19,9 +19,19 @@ On a besoin d'un programme spécial pour faire marcher le site.
 C'est là qu'on garde tous les plats et les commandes.
 *   Ouvre ton navigateur (Chrome, Firefox...).
 *   Tape `http://localhost/phpmyadmin/` dans la barre d'adresse.
-*   En haut de la page, clique sur le bouton **"Importer"**.
-*   Clique sur **"Parcourir"** et choisis le fichier `restaurant_orders.sql` qui se trouve dans ton dossier `Gestion_Restaurant/database`.
-*   Tout en bas, clique sur **"Exécuter"**. Bravo, la base de données est prête !
+*   **Si c'est ta première fois :**
+  *   Clique sur **"New"** à gauche
+  *   Nom de la base : `restaurant_orders`
+  *   Collation : `utf8mb4_unicode_ci`
+  *   Clique sur **Create**
+*   **Importer le fichier SQL :**
+  *   Dans la liste à gauche, clique sur `restaurant_orders` pour sélectionner la base
+  *   En haut de la page, clique sur le bouton **"Importer"**
+  *   Clique sur **"Choisir de fichier"** et sélectionne `database/restaurant_orders.sql`
+  *   Tout en bas, clique sur **"Exécuter"**. Bravo, la base de données est prête !
+*   **Vérification :**
+  *   Tu devrais voir 3 tables : `products`, `orders`, `order_items`
+  *   Chaque table devrait contenir des données (3 plats, 1 commande, 2 articles de commande)
 
 ### 4. C'est parti !
 Maintenant, pour voir ton application :
