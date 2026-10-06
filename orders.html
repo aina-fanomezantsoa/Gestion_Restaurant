@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Admin | Commandes</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div><h2>Resto<span>Admin</span></h2></div>
+      </div>
+      <nav class="navigation">
+        <p class="nav-title">MENU</p>
+        <a href="index.html" class="nav-item">Dashboard</a>
+        <a href="orders.html" class="nav-item active">Commandes</a>
+        <a href="menu.html" class="nav-item">Menu</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <h1>Commandes</h1>
+        <div>
+          <select id="filter-status" onchange="filterOrders()">
+            <option value="all">Tous</option>
+            <option value="pending">En attente</option>
+            <option value="preparing">En préparation</option>
+            <option value="ready">Prête</option>
+            <option value="completed">Terminée</option>
+            <option value="cancelled">Annulée</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="panel">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Client</th>
+              <th>Table</th>
+              <th>Total</th>
+              <th>Statut</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="js/orders.js"></script>
+  </body>
+</html>

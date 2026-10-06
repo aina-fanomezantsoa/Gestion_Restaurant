@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détails Commande</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="main" style="max-width: 800px; margin: auto;">
+      <a href="orders.html">← Retour</a>
+      <div class="panel" style="margin-top:20px;">
+        <h2>Commande #<span id="order-id"></span></h2>
+        <p>Client: <span id="customer-name"></span></p>
+        <p>Téléphone: <span id="customer-phone"></span></p>
+        <hr style="margin:20px 0;">
+        <table id="items-table">
+          <thead><tr><th>Produit</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody id="items-body"></tbody>
+        </table>
+        <h3>Total: <span id="total-amount"></span> Ar</h3>
+        
+        <div style="margin-top:20px;">
+          <select id="status-select">
+            <option value="pending">En attente</option>
+            <option value="preparing">En préparation</option>
+            <option value="ready">Prête</option>
+            <option value="completed">Terminée</option>
+            <option value="cancelled">Annulée</option>
+          </select>
+          <button onclick="updateStatus()" style="padding:10px; background:var(--primary); color:white; border:none; cursor:pointer;">Modifier le statut</button>
+        </div>
+      </div>
+    </main>
+    <script src="js/order-details.js"></script>
+  </body>
+</html>
