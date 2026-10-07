@@ -17,7 +17,6 @@ async function loadDashboard() {
             tbody.innerHTML = orders.map(order => `
                 <tr>
                     <td>#${order.id}</td>
-                    <td>${order.customer_name}</td>
                     <td>${order.table_number}</td>
                     <td>${order.total_amount} Ar</td>
                     <td><span class="status ${order.status}">${order.status}</span></td>

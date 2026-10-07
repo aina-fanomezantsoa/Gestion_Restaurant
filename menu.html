@@ -19,7 +19,10 @@
     <main class="main">
         <h1>Gestion du Menu</h1>
         <div class="panel">
-            <button id="add-btn" style="margin-bottom:20px; padding:10px 20px; background-color: white; border: 2px solid #FF6B35; color: #FF6B35; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.backgroundColor='#FF6B35'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.color='#FF6B35';">+ Ajouter un plat</button>
+            <div style="display: flex; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <input type="text" id="search-input" placeholder="Rechercher..." style="flex: 1; max-width: 300px; padding: 10px; border: 2px solid #FF6B35; border-radius: 8px; box-sizing: border-box;">
+                <button id="add-btn" style="padding:10px 20px; background-color: white; border: 2px solid #FF6B35; color: #FF6B35; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.backgroundColor='#FF6B35'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.color='#FF6B35';">+ Ajouter un plat</button>
+            </div>
             <table id="menu-table">
                 <thead><tr><th>Nom</th><th>Catégorie</th><th>Prix</th><th>Image</th><th>Action</th></tr></thead>
                 <tbody id="menu-body"></tbody>
@@ -48,6 +51,7 @@
             </form>
         </div>
     </div>
+    <script src="js/notifications.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

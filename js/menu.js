@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadMenu();
     const modal = document.getElementById('product-modal');
+    const searchInput = document.getElementById('search-input');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        const rows = document.querySelectorAll('#menu-body tr');
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(query) ? '' : 'none';
+        });
+    });
+
     document.getElementById('add-btn').onclick = () => {
         modal.style.display = 'flex';
         document.getElementById('product-id').value = '';
@@ -14,28 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('product-form').onsubmit = async (e) => {
         e.preventDefault();
-        const id = document.getElementById('product-id').value;
-        const name = document.getElementById('name').value;
-        const description = document.getElementById('description').value;
-        const price = document.getElementById('price').value;
-        const category = document.getElementById('category').value;
+        const formData = new FormData();
+        formData.append('id', document.getElementById('product-id').value);
+        formData.append('name', document.getElementById('name').value);
+        formData.append('description', document.getElementById('description').value);
+        formData.append('price', document.getElementById('price').value);
+        formData.append('category', document.getElementById('category').value);
+        
         const imageFile = document.getElementById('image-file').files[0];
-        const imageName = imageFile ? imageFile.name : document.getElementById('image-path').value;
+        if (imageFile) formData.append('image', imageFile);
+        else formData.append('current_image', document.getElementById('image-path').value);
+
+        const url = document.getElementById('product-id').value ? 'php/menu/update_product.php' : 'php/menu/add_product.php';
         
-        const formData = {
-            name, description, price, category, image: imageName
-        };
+        const response = await fetch(url, { method: 'POST', body: formData });
+        const result = await response.json();
         
-        const method = id ? 'PUT' : 'POST';
-        const url = id ? 'php/menu/update_product.php' : 'php/menu/add_product.php';
+        if (result.success) {
+            showNotification('Opération réussie !', 'success');
+        } else {
+            showNotification('Erreur : ' + (result.message || 'Une erreur est survenue'), 'error');
+        }
         
-        await fetch(url, {
-            method: method,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        });
-        
-        modal.style.display = 'none';
+        document.getElementById('product-modal').style.display = 'none';
         document.getElementById('product-form').reset();
         loadMenu();
     };
@@ -94,10 +106,17 @@ async function editProduct(id) {
 }
 
 function deleteProduct(id) {
-    if(confirm('Supprimer ce plat ?')) {
+    showConfirm('Supprimer ce plat ?', () => {
         fetch('php/menu/delete_product.php', {
             method: 'POST',
             body: JSON.stringify({id})
-        }).then(() => loadMenu());
-    }
+        }).then(res => res.json()).then(res => {
+            if(res.success) {
+                showNotification('Plat supprimé', 'success');
+                loadMenu();
+            } else {
+                showNotification('Erreur lors de la suppression', 'error');
+            }
+        });
+    });
 }
