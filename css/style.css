@@ -45,3 +45,22 @@ td { padding: 15px 10px; border-top: 1px solid #F3F4F6; }
 .status.preparing { background: #DBEAFE; color: #1E40AF; }
 .status.ready { background: #DCFCE7; color: #065F46; }
 .status.completed { background: #F3F4F6; color: #374151; }
+
+/* Buttons */
+.btn { 
+    display: inline-block;
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 0.85rem; 
+    transition: background 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: #e85d29; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-danger:hover { background: #dc2626; }
+.btn-success { background: var(--success); color: white; }
+.btn-success:hover { background: #16a34a; }
