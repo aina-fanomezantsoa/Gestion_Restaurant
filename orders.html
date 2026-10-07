@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Admin | Commandes</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
     <aside class="sidebar">
@@ -24,7 +26,7 @@
       <header class="header">
         <h1>Commandes</h1>
         <div>
-          <select id="filter-status" onchange="filterOrders()">
+          <select id="filter-status" class="filter-select" onchange="filterOrders()">
             <option value="all">Tous</option>
             <option value="pending">En attente</option>
             <option value="preparing">En préparation</option>

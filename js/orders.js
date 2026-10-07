@@ -26,7 +26,11 @@ function renderOrders(orders) {
             <td>${order.table_number}</td>
             <td>${order.total_amount} Ar</td>
             <td><span class="status ${order.status}">${order.status}</span></td>
-            <td><a href="order-details.html?id=${order.id}">Voir détails</a></td>
+            <td>
+                <a href="order-details.html?id=${order.id}" class="btn btn-primary">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </a>
+            </td>
         </tr>
     `).join('');
 }

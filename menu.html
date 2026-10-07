@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Gestion Menu</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <aside class="sidebar">
@@ -17,7 +19,7 @@
     <main class="main">
         <h1>Gestion du Menu</h1>
         <div class="panel">
-            <button id="add-btn" style="margin-bottom:20px; padding:10px;">Ajouter un plat</button>
+            <button id="add-btn" style="margin-bottom:20px; padding:10px 20px; background-color: white; border: 2px solid #FF6B35; color: #FF6B35; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.backgroundColor='#FF6B35'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.color='#FF6B35';">+ Ajouter un plat</button>
             <table id="menu-table">
                 <thead><tr><th>Nom</th><th>Catégorie</th><th>Prix</th><th>Image</th><th>Action</th></tr></thead>
                 <tbody id="menu-body"></tbody>
@@ -41,8 +43,8 @@
                     <input type="file" id="image-file" accept="image/*">
                 </div>
                 <input type="hidden" id="image-path">
-                <button type="submit" id="form-submit">Enregistrer</button>
-                <button type="button" id="close-modal">Annuler</button>
+                <button type="submit" id="form-submit" style="background-color: #FF6B35; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold;">Enregistrer</button>
+                <button type="button" id="close-modal" style="background: none; border: none; color: #6b7280; cursor: pointer; padding: 10px; font-weight: bold;">Annuler</button>
             </form>
         </div>
     </div>

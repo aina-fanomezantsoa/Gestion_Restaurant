@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-title').innerText = 'Ajouter un plat';
         document.getElementById('form-submit').innerText = 'Enregistrer';
         document.getElementById('current-image').src = '';
+        document.getElementById('current-image').style.display = 'none';
+        document.getElementById('product-form').reset();
     };
     document.getElementById('close-modal').onclick = () => modal.style.display = 'none';
     
@@ -56,8 +58,8 @@ async function loadMenu() {
                 <td>${p.price} Ar</td>
                 <td>${imageCell}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="editProduct(${p.id})">Modifier</button>
-                    <button class="btn btn-danger" onclick="deleteProduct(${p.id})">Supprimer</button>
+                    <button class="btn btn-primary" onclick="editProduct(${p.id})"><ion-icon name="create-outline" style="font-weight:bold;"></ion-icon></button>
+                    <button class="btn btn-danger" onclick="deleteProduct(${p.id})"><ion-icon name="trash-outline" style="font-weight:bold;"></ion-icon></button>
                 </td>
             </tr>
         `;
