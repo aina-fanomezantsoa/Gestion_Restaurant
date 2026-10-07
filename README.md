@@ -9,7 +9,7 @@ Guide pour installer et configurer le projet sur un ordinateur Ubuntu.
 Ouvre un terminal et exécute :
 
 ```bash
-git clone https://github.com/votre-username/Gestion_Restaurant.git
+git clone https://github.com/aina-fanomezantsoa/Gestion_Restaurant.git
 cd Gestion_Restaurant
 ```
 
